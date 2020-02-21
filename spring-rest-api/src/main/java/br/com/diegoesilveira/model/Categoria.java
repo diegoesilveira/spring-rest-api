@@ -13,6 +13,8 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 @Table(name = "categoria")
 public class Categoria implements Serializable{
@@ -31,6 +33,7 @@ public class Categoria implements Serializable{
 	@NotBlank(message = "Campo obrigatorio!")
 	private String nome;
 
+	@JsonIgnore
 	@ManyToMany(mappedBy = "categorias")
 	private List<Produto> produtos = new ArrayList<>();
 	
