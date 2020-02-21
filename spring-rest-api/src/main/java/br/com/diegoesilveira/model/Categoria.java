@@ -7,34 +7,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name = "categoria")
-public class Categoria implements Serializable{
-
-	/**
-	 * 
-	 */
+public class Categoria implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_categoria")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id;
 	
 	@Column(name = "nome")
-	@NotBlank(message = "Campo obrigatorio!")
 	private String nome;
-
 	
 	
 	public Categoria() {
 	}
 
-	public Categoria(Integer id, @NotBlank(message = "Campo obrigatorio!") String nome) {
-		super();
+	public Categoria(Integer id, String nome) {
 		this.id = id;
 		this.nome = nome;
 	}
@@ -54,7 +43,7 @@ public class Categoria implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -86,7 +75,9 @@ public class Categoria implements Serializable{
 	}
 	
 	
-	
-	
-	
+
 }
+
+	
+	
+
