@@ -22,6 +22,7 @@ public class CategoriaService {
 		return repository.findAll();
 
 	}
+
 	
 	public Categoria find(Integer codigo) {
 		Optional<Categoria> obj = repository.findById(codigo);

@@ -2,8 +2,6 @@ package br.com.diegoesilveira.resources;
 
 import java.net.URI;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestBody;
