@@ -10,38 +10,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-@Table(name = "categoria")
-public class Categoria implements Serializable{
-
-	/**
-	 * 
-	 */
+public class Categoria implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "id_categoria")
 	private Integer id;
-	
+
 	@Column(name = "nome")
-	@NotBlank(message = "Campo obrigatorio!")
 	private String nome;
 
 	@JsonIgnore
 	@ManyToMany(mappedBy = "categorias")
 	private List<Produto> produtos = new ArrayList<>();
-	
+
 	public Categoria() {
 	}
 
-	public Categoria(Integer id, @NotBlank(message = "Campo obrigatorio!") String nome) {
-		super();
+	public Categoria(Integer id, String nome) {
 		this.id = id;
 		this.nome = nome;
 	}
@@ -91,9 +81,5 @@ public class Categoria implements Serializable{
 	public String toString() {
 		return "Categoria [id=" + id + ", nome=" + nome + "]";
 	}
-	
-	
-	
-	
-	
+
 }
